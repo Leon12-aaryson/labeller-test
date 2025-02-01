@@ -8,7 +8,7 @@ This GitHub Action automatically adds a specified label to Pull Requests. It is 
 - Designed for future expansion to support labeling issues and other GitHub events.
 
 ## Usage
-
+test
 ### Example Workflow
 
 Here’s how you can use this action in your GitHub repository. Create a workflow YAML file (e.g., `.github/workflows/labeler.yml`) and use the following configuration:
