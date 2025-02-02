@@ -1,0 +1,28 @@
+name: Labeler
+
+on:
+  pull_request:
+    types: [opened, reopened]
+  issues:
+    types: [opened, reopened]
+
+jobs:
+  handle_PRs:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          gh-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "needs-review"
+
+  handle_issues:
+    if: github.event_name == 'issues'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        with:
+          gh-token: "${{ secrets.GITHUB_TOKEN }}"
+          label: "issue-opened"
