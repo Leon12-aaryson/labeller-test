@@ -8,21 +8,21 @@ on:
 
 jobs:
   handle_PRs:
+    name: Handling PRs
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
         with:
           gh-token: "${{ secrets.GITHUB_TOKEN }}"
           label: "needs-review"
 
   handle_issues:
+    name: Handle github issues
     if: github.event_name == 'issues'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
         with:
           gh-token: "${{ secrets.GITHUB_TOKEN }}"
           label: "issue-opened"
